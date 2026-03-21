@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PennyTree — Take Control of Your Money</title>
+  <meta name="description" content="PennyTree helps you track spending across all your Nigerian bank accounts in one place. Smart insights, goals, and budgets to grow your money." />
+  <meta name="keywords" content="PennyTree, personal finance, Nigeria, bank tracking, spending tracker, budgeting app" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="PennyTree — Take Control of Your Money" />
+  <meta property="og:description" content="Track spending across all your Nigerian bank accounts in one place." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/src/assets/phone-mockup.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#home" class="nav-logo">
+        <div class="nav-logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 20h10"/>
+            <path d="M10 20c5.5-2.5.8-6.4 3-10"/>
+            <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/>
+            <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/>
+          </svg>
+        </div>
+        PennyTree
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#founder">Our Story</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <a href="#cta" class="nav-cta">Get the App</a>
+      </div>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#home">Home</a>
+    <a href="#features">Features</a>
+    <a href="#about">About</a>
+    <a href="#founder">Our Story</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+    <a href="#cta" class="btn-primary">Get the App</a>
+  </div>
+
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Now Available on iOS & Android
+        </div>
+        <h1 class="hero-title">
+          Take Control<br/>of Your <span class="gradient-text">Money</span>
+        </h1>
+        <p class="hero-description">
+          Track spending across all your Nigerian bank accounts in one place. Get smart insights, set goals, and watch your money grow — effortlessly.
+        </p>
+        <div class="hero-actions">
+          <a href="#cta" class="btn-primary">
+            Download Free
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#features" class="btn-secondary">
+            See Features
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-phone">
+          <div class="hero-phone-glow"></div>
+          <img src="/src/assets/phone-mockup.png" alt="PennyTree App Dashboard showing balance and spending chart" />
+
+          <!-- Floating Cards -->
+          <div class="hero-float-card card-1">
+            <div class="float-card-icon green">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
+              </svg>
+            </div>
+            <div class="float-card-text">
+              <span class="float-card-label">Savings Goal</span>
+              <span class="float-card-value">₦500,000 ✓</span>
+            </div>
+          </div>
+
+          <div class="hero-float-card card-2">
+            <div class="float-card-icon blue">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/>
+              </svg>
+            </div>
+            <div class="float-card-text">
+              <span class="float-card-label">Banks Linked</span>
+              <span class="float-card-value">3 Accounts</span>
+            </div>
+          </div>
+
+          <div class="hero-float-card card-3">
+            <div class="float-card-icon purple">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <div class="float-card-text">
+              <span class="float-card-label">This Month</span>
+              <span class="float-card-value">-12% Spending</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== STATS ===== -->
+  <section class="stats" id="stats">
+    <div class="container">
+      <div class="stats-grid stagger-children">
+        <div class="stat-item reveal">
+          <div class="stat-number" data-count="10000" data-suffix="+">0</div>
+          <div class="stat-label">Active Users</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="stat-number" data-count="2" data-prefix="₦" data-suffix="B+">0</div>
+          <div class="stat-label">Money Tracked</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="stat-number" data-count="15" data-suffix="+">0</div>
+          <div class="stat-label">Banks Supported</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="stat-number" data-count="4.8" data-suffix="★" data-decimal="true">0</div>
+          <div class="stat-label">App Store Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== FEATURES OVERVIEW ===== -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="features-header reveal">
+        <span class="section-label">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+          Features
+        </span>
+        <h2 class="section-title">Everything You Need to<br/><span class="gradient-text">Master Your Finances</span></h2>
+        <p class="section-subtitle">PennyTree gives you the complete picture of your money — across all banks, at a glance.</p>
+      </div>
+
+      <div class="features-grid stagger-children">
+        <div class="feature-card reveal">
+          <div class="feature-card-content">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/>
+              </svg>
+            </div>
+            <h3>Multi-Bank Linking</h3>
+            <p>Connect all your Nigerian bank accounts in seconds. See every balance and transaction in one unified dashboard.</p>
+          </div>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-card-content">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/>
+              </svg>
+            </div>
+            <h3>Spending Insights</h3>
+            <p>Understand where every naira goes. AI-powered categorisation and beautiful charts show your spending patterns.</p>
+          </div>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-card-content">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+              </svg>
+            </div>
+            <h3>Savings Goals</h3>
+            <p>Set savings goals with custom targets and timelines. Watch your progress with motivating visual trackers.</p>
+          </div>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-card-content">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 10v3"/><path d="M6 6v11"/><path d="M10 3v18"/><path d="M14 8v7"/><path d="M18 5v13"/><path d="M22 10v3"/>
+              </svg>
+            </div>
+            <h3>Budget Limits</h3>
+            <p>Create custom spending limits by category. Get alerts before you overspend — so your budget stays on track.</p>
+          </div>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-card-content">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/>
+              </svg>
+            </div>
+            <h3>Subscription Tracker</h3>
+            <p>Never get surprised by recurring charges. Track every subscription and see your monthly commitments at a glance.</p>
+          </div>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-card-content">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/>
+              </svg>
+            </div>
+            <h3>Smart Reports</h3>
+            <p>Get weekly and monthly financial reports. Detailed breakdowns, comparisons, and trends to keep you informed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== FEATURES DEEP DIVE ===== -->
+  <section class="features-detail" id="features-detail">
+    <div class="container">
+      <!-- Feature 1 -->
+      <div class="feature-detail-row">
+        <div class="feature-detail-text reveal-left">
+          <span class="section-label">Bank Linking</span>
+          <h3>All Your Banks,<br/><span class="gradient-text">One Dashboard</span></h3>
+          <p>Connect your GTBank, Access, UBA, First Bank, and more. PennyTree uses secure, read-only access to pull your transactions automatically.</p>
+          <ul class="feature-detail-list">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              15+ Nigerian banks supported
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Bank-level security encryption
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Real-time transaction sync
+            </li>
+          </ul>
+        </div>
+        <div class="feature-detail-visual reveal-right">
+          <div class="visual-card">
+            <div class="visual-card-glow"></div>
+            <div class="visual-card-inner">
+              <div class="mock-balance">
+                <div class="mock-balance-label">Total Balance</div>
+                <div class="mock-balance-amount">₦2,450,000</div>
+              </div>
+              <div class="mock-transaction">
+                <div class="mock-transaction-left">
+                  <div class="mock-transaction-icon">🏦</div>
+                  <div><div class="mock-transaction-name">GTBank</div><div class="mock-transaction-date">Main Account</div></div>
+                </div>
+                <div class="mock-transaction-amount positive">₦1,200,000</div>
+              </div>
+              <div class="mock-transaction">
+                <div class="mock-transaction-left">
+                  <div class="mock-transaction-icon">🏦</div>
+                  <div><div class="mock-transaction-name">Access Bank</div><div class="mock-transaction-date">Savings</div></div>
+                </div>
+                <div class="mock-transaction-amount positive">₦850,000</div>
+              </div>
+              <div class="mock-transaction">
+                <div class="mock-transaction-left">
+                  <div class="mock-transaction-icon">🏦</div>
+                  <div><div class="mock-transaction-name">UBA</div><div class="mock-transaction-date">Salary</div></div>
+                </div>
+                <div class="mock-transaction-amount positive">₦400,000</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-detail-row reversed">
+        <div class="feature-detail-text reveal-right">
+          <span class="section-label">Insights</span>
+          <h3>See Where Your <br/><span class="gradient-text">Money Goes</span></h3>
+          <p>PennyTree automatically categorises your transactions and shows you beautiful visual breakdowns. No manual work required.</p>
+          <ul class="feature-detail-list">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              AI-powered categorisation
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Monthly comparison charts
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Spending alerts & trends
+            </li>
+          </ul>
+        </div>
+        <div class="feature-detail-visual reveal-left">
+          <div class="visual-card">
+            <div class="visual-card-glow"></div>
+            <div class="visual-card-inner">
+              <div class="mock-balance" style="margin-bottom: 2rem;">
+                <div class="mock-balance-label">Monthly Spending</div>
+                <div class="mock-balance-amount" style="font-size: 1.5rem;">₦385,000</div>
+              </div>
+              <div class="mock-chart-bar"><div class="mock-chart-bar-fill" style="--fill-width: 78%;"></div></div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:1rem;"><span style="font-size:0.75rem;color:#a0a0a0;">Food & Dining</span><span style="font-size:0.75rem;font-weight:700;">₦120,000</span></div>
+              <div class="mock-chart-bar"><div class="mock-chart-bar-fill" style="--fill-width: 55%;"></div></div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:1rem;"><span style="font-size:0.75rem;color:#a0a0a0;">Transport</span><span style="font-size:0.75rem;font-weight:700;">₦85,000</span></div>
+              <div class="mock-chart-bar"><div class="mock-chart-bar-fill" style="--fill-width: 40%;"></div></div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:1rem;"><span style="font-size:0.75rem;color:#a0a0a0;">Shopping</span><span style="font-size:0.75rem;font-weight:700;">₦62,000</span></div>
+              <div class="mock-chart-bar"><div class="mock-chart-bar-fill" style="--fill-width: 28%;"></div></div>
+              <div style="display:flex;justify-content:space-between;"><span style="font-size:0.75rem;color:#a0a0a0;">Subscriptions</span><span style="font-size:0.75rem;font-weight:700;">₦43,000</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-intro reveal">
+        <span class="section-label">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+          </svg>
+          About Us
+        </span>
+        <h2 class="section-title">Built for Nigerians,<br/>by <span class="gradient-text">Nigerians</span></h2>
+        <p>We believe every Nigerian deserves a clear picture of their finances. PennyTree was born out of the frustration of juggling multiple bank apps and never really knowing where the money goes. We're on a mission to make personal finance simple, visual, and empowering for everyone.</p>
+      </div>
+
+      <div class="values-grid stagger-children">
+        <div class="value-card reveal">
+          <div class="value-card-emoji">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 10-5.5 5.5L8 13"/></svg>
+          </div>
+          <h3>Clarity</h3>
+          <p>We cut through the noise. One dashboard, all your accounts, zero confusion. Your money, crystal clear.</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-card-emoji">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3>Security</h3>
+          <p>Bank-level encryption and read-only access. We never store your bank credentials — your data stays yours.</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-card-emoji">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8l4-4"/><path d="M12 10l-4-4"/><circle cx="12" cy="18" r="4"/></svg>
+          </div>
+          <h3>Empowerment</h3>
+          <p>Knowledge is power. We give you the insights and tools to make better financial decisions every day.</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-card-emoji">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Community</h3>
+          <p>Finance doesn't have to be lonely. We're building a community of Nigerians who care about their money.</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-card-emoji">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>Innovation</h3>
+          <p>We leverage AI and modern tech to make features that feel magical — while keeping things simple.</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-card-emoji">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          </div>
+          <h3>Impact</h3>
+          <p>Every feature we build is designed to help Nigerians save more, spend smarter, and achieve financial freedom.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== FOUNDER SECTION ===== -->
+  <section class="founder" id="founder">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+          Founder's Story
+        </span>
+        <h2 class="section-title">The Story Behind <span class="gradient-text">PennyTree</span></h2>
+      </div>
+
+      <div class="founder-grid">
+        <div class="founder-photo-wrapper reveal-left">
+          <div class="founder-photo">
+            <div style="display:flex;align-items:center;justify-content:center;height:100%;flex-direction:column;gap:1rem;padding:2rem;">
+              <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg, #ffffff, #888888);display:flex;align-items:center;justify-content:center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+              <div style="text-align:center;">
+                <div style="font-size:1.25rem;font-weight:700;margin-bottom:0.25rem;">Tega Oboraruvwe</div>
+                <div style="font-size:0.875rem;color:#6a6a6a;">CEO & Founder</div>
+              </div>
+            </div>
+          </div>
+          <div class="founder-photo-glow"></div>
+        </div>
+
+        <div class="founder-story reveal-right">
+          <div class="founder-name">Tega Oboraruvwe</div>
+          <div class="founder-title-role">CEO & Founder, PennyTree</div>
+
+          <div class="founder-timeline">
+            <div class="timeline-item reveal">
+              <div class="timeline-year">The Problem</div>
+              <p class="timeline-text">"I had four bank accounts and I could never tell you how much I'd spent in a month. I'd check one app, then another, then try to add things up on a calculator. There had to be a better way."</p>
+            </div>
+            <div class="timeline-item reveal">
+              <div class="timeline-year">The Spark</div>
+              <p class="timeline-text">"I looked at what people in other countries had — apps like Mint and YNAB. But nothing existed that truly understood the Nigerian banking experience. The multiple accounts, the POS payments, the transfers."</p>
+            </div>
+            <div class="timeline-item reveal">
+              <div class="timeline-year">Building PennyTree</div>
+              <p class="timeline-text">"So I started building. Every feature was inspired by conversations with real Nigerians about their money struggles. We obsessed over making it simple — because finance apps shouldn't need a manual."</p>
+            </div>
+            <div class="timeline-item reveal">
+              <div class="timeline-year">Today</div>
+              <p class="timeline-text">"Thousands of Nigerians now use PennyTree to understand and control their finances. This is just the beginning — we're building the financial companion every Nigerian deserves."</p>
+            </div>
+          </div>
+
+          <div class="founder-quote reveal">
+            <p>"Every naira you understand is a naira you control. That's the heart of PennyTree — turning financial confusion into clarity."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== FAQ SECTION ===== -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="faq-header reveal">
+        <span class="section-label">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>
+          </svg>
+          FAQ
+        </span>
+        <h2 class="section-title">Questions? <span class="gradient-text">Answered.</span></h2>
+        <p class="section-subtitle">Everything you need to know about PennyTree.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question" id="faq-q-1">
+            Is PennyTree really free?
+            <span class="faq-question-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes! PennyTree's core features — bank linking, transaction tracking, categorisation, and insights — are completely free. We offer a premium plan with advanced features like detailed reports, unlimited goals, and priority support.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" id="faq-q-2">
+            Is my bank data safe?
+            <span class="faq-question-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Absolutely. We use bank-level 256-bit encryption and connect through licensed, regulated partners like Mono. We only have read-only access — we can never move your money. Your credentials are never stored on our servers.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" id="faq-q-3">
+            Which banks are supported?
+            <span class="faq-question-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">PennyTree supports 15+ Nigerian banks including GTBank, Access Bank, UBA, First Bank, Zenith Bank, Kuda, Opay, and more. We're constantly adding new banks based on user requests.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" id="faq-q-4">
+            How does PennyTree categorise my spending?
+            <span class="faq-question-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">We use AI to automatically categorise your transactions into groups like Food, Transport, Shopping, Bills, and more. You can also create custom categories and re-categorise any transaction with a single tap.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" id="faq-q-5">
+            Can I use PennyTree outside Nigeria?
+            <span class="faq-question-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">PennyTree currently focuses on Nigerian bank accounts. However, you can access the app from anywhere in the world as long as your linked accounts are with supported Nigerian banks. We have plans to expand to other African countries.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" id="faq-q-6">
+            How do I get started?
+            <span class="faq-question-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Download PennyTree from the App Store or Google Play Store, sign up with your phone number or Google account, and link your bank accounts. The whole process takes less than 2 minutes!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          Contact Us
+        </span>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal-left">
+          <h3>Let's <span class="gradient-text">Talk</span></h3>
+          <p>Have questions, feedback, or just want to say hi? We'd love to hear from you. Drop us a message and we'll get back to you within 24 hours.</p>
+
+          <div class="contact-channels">
+            <div class="contact-channel">
+              <div class="contact-channel-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+              </div>
+              <div class="contact-channel-text">
+                <h4>Email</h4>
+                <a href="mailto:hello@pennytree.app">hello@pennytree.app</a>
+              </div>
+            </div>
+            <div class="contact-channel">
+              <div class="contact-channel-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+              </div>
+              <div class="contact-channel-text">
+                <h4>In-App Support</h4>
+                <p>Chat with us directly from the PennyTree app</p>
+              </div>
+            </div>
+            <div class="contact-channel">
+              <div class="contact-channel-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div class="contact-channel-text">
+                <h4>Location</h4>
+                <p>Lagos, Nigeria 🇳🇬</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-social">
+            <a href="#" class="social-link" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4l11.733 16h4.267l-11.733 -16h-4.267z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="TikTok">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form reveal-right" id="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-name">Name</label>
+              <input type="text" id="contact-name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email</label>
+              <input type="email" id="contact-email" placeholder="you@example.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contact-subject">Subject</label>
+            <input type="text" id="contact-subject" placeholder="What's this about?" required />
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" placeholder="Tell us what's on your mind..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="form-submit-btn">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== CTA SECTION ===== -->
+  <section class="cta" id="cta">
+    <div class="cta-glow"></div>
+    <div class="container">
+      <div class="cta-inner reveal-scale">
+        <h2>Ready to Take Control<br/>of Your <span class="gradient-text">Money?</span></h2>
+        <p>Join thousands of Nigerians who are already making smarter financial decisions with PennyTree.</p>
+        <div class="cta-buttons">
+          <a href="#" class="btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+            </svg>
+            App Store
+          </a>
+          <a href="#" class="btn-primary" style="background:#1a1a1a;color:white;border:1px solid rgba(255,255,255,0.15);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zM14.5 12.707l2.302 2.302-9.07 5.168 6.768-7.47zm4.45-1.673l1.84 1.05c.63.36.63 1.31 0 1.67l-1.84 1.05-2.5-1.884 2.5-1.883zM14.5 11.293L7.733 3.823 16.8 8.99 14.5 11.293z"/>
+            </svg>
+            Google Play
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="nav-logo">
+            <div class="nav-logo-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 20h10"/>
+                <path d="M10 20c5.5-2.5.8-6.4 3-10"/>
+                <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/>
+                <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/>
+              </svg>
+            </div>
+            PennyTree
+          </a>
+          <p>The smartest way for Nigerians to track spending, save more, and take control of their money.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#features">Features</a>
+          <a href="#features-detail">How it Works</a>
+          <a href="#faq">FAQ</a>
+          <a href="#">Pricing</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#about">About Us</a>
+          <a href="#founder">Founder's Story</a>
+          <a href="#">Careers</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="#contact">Contact Us</a>
+          <a href="#">Help Center</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 PennyTree. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
