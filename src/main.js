@@ -186,7 +186,7 @@ function initContactForm() {
 
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     // Visual feedback
@@ -195,21 +195,37 @@ function initContactForm() {
     submitBtn.style.opacity = '0.7';
     submitBtn.disabled = true;
 
-    // Simulate send
-    setTimeout(() => {
-      submitBtn.textContent = '✓ Message Sent!';
-      submitBtn.style.background = 'var(--color-primary)';
-      submitBtn.style.color = 'white';
+    try {
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        submitBtn.textContent = '✓ Message Sent!';
+        submitBtn.style.opacity = '1';
+        form.reset();
+
+        setTimeout(() => {
+          submitBtn.textContent = originalText;
+          submitBtn.style.background = '';
+          submitBtn.style.color = '';
+          submitBtn.disabled = false;
+        }, 3000);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      submitBtn.textContent = '✕ Failed — Try Again';
       submitBtn.style.opacity = '1';
-      form.reset();
+      submitBtn.disabled = false;
 
       setTimeout(() => {
         submitBtn.textContent = originalText;
-        submitBtn.style.background = '';
-        submitBtn.style.color = '';
-        submitBtn.disabled = false;
       }, 3000);
-    }, 1500);
+    }
   });
 
   // Animated focus effects
