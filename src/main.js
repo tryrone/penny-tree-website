@@ -1,325 +1,220 @@
-/* ============================================
-   PENNYTREE WEBSITE — Main JavaScript
-   Animations, interactions, and scroll effects
-   ============================================ */
+import "./style.css";
 
-import './style.css';
+const menuButton = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector("#nav-links");
+function setMenu(open) {
+  menuButton.setAttribute("aria-expanded", String(open));
+  navLinks.classList.toggle("is-open", open);
+}
+menuButton.addEventListener("click", () =>
+  setMenu(menuButton.getAttribute("aria-expanded") !== "true"),
+);
+navLinks.addEventListener("click", (event) => {
+  if (event.target.closest("a")) setMenu(false);
+});
+document.addEventListener("keydown", (event) => {
+  if (
+    event.key === "Escape" &&
+    menuButton.getAttribute("aria-expanded") === "true"
+  ) {
+    setMenu(false);
+    menuButton.focus();
+  }
+});
+document.addEventListener("click", (event) => {
+  if (!event.target.closest(".nav")) setMenu(false);
+});
+window
+  .matchMedia("(max-width: 760px)")
+  .addEventListener("change", () => setMenu(false));
 
-// --- DOM Ready ---
-document.addEventListener('DOMContentLoaded', () => {
-  initNavigation();
-  initScrollReveal();
-  initStatsCounter();
-  initFaqAccordion();
-  initContactForm();
-  initChartBars();
-  initParallaxEffects();
+const form = document.querySelector("#waitlist-form");
+const submitButton = form.querySelector('button[type="submit"]');
+const status = document.querySelector("#form-status");
+let submitting = false;
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  if (submitting || !form.reportValidity()) return;
+  submitting = true;
+  const data = new FormData(form);
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 15000);
+  submitButton.disabled = true;
+  submitButton.textContent = "Joining…";
+  form.setAttribute("aria-busy", "true");
+  status.textContent = "Sending your waitlist request…";
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      headers: { Accept: "application/json" },
+      body: data,
+      signal: controller.signal,
+    });
+    const result = await response.json();
+    if (
+      !response.ok ||
+      !(result.success === true || result.success === "true")
+    ) {
+      throw new Error("Waitlist request was not confirmed");
+    }
+    status.textContent =
+      "Thanks! Your request has been sent to the PennyTree team for launch updates.";
+    form.reset();
+  } catch {
+    status.textContent =
+      "We couldn't confirm your request. Please try again or use the email link below.";
+  } finally {
+    clearTimeout(timeout);
+    submitting = false;
+    submitButton.disabled = false;
+    submitButton.innerHTML =
+      'Join the waitlist <span aria-hidden="true">↗</span>';
+    form.removeAttribute("aria-busy");
+  }
 });
 
-/* ============================================
-   NAVIGATION
-   ============================================ */
-function initNavigation() {
-  const nav = document.getElementById('nav');
-  const hamburger = document.getElementById('nav-hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileLinks = mobileMenu.querySelectorAll('a');
+const byId = (id) => document.getElementById(id);
+const currency = new Intl.NumberFormat("en-NG", {
+  style: "currency",
+  currency: "NGN",
+  maximumFractionDigits: 0,
+  minimumFractionDigits: 0,
+});
+const naira = (amount) => currency.format(amount);
+const categories = {
+  food: { label: "Food & groceries", amount: 48500 },
+  transport: { label: "Transport", amount: 28000 },
+  subscriptions: { label: "Subscriptions", amount: 15500 },
+};
+const cashAmount = 3500;
+let includesCash = false;
+const budget = byId("budget");
 
-  // Scroll effect for nav
-  let lastScroll = 0;
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.scrollY;
-    if (currentScroll > 50) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
-    lastScroll = currentScroll;
-  }, { passive: true });
+function renderMoney() {
+  const food = categories.food.amount + (includesCash ? cashAmount : 0);
+  const total =
+    food + categories.transport.amount + categories.subscriptions.amount;
+  const selected = document.querySelector(
+    'input[name="category"]:checked',
+  ).value;
+  const selectedAmount =
+    selected === "food" ? food : categories[selected].amount;
+  const percentage = Math.round((selectedAmount / total) * 100);
+  const limit = Number(budget.value);
+  const remaining = limit - total;
+  const overBudget = remaining < 0;
+  const roomLabel = overBudget ? "Over budget" : "Room left";
 
-  // Hamburger toggle
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    mobileMenu.classList.toggle('active');
-    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-  });
-
-  // Close mobile menu on link click
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      mobileMenu.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-  });
-
-  // Active link highlighting
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      if (window.scrollY >= sectionTop) {
-        current = section.getAttribute('id');
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
-      }
-    });
-  }, { passive: true });
+  byId("food-value").textContent = naira(food);
+  byId("food-segment").style.flexGrow = food;
+  byId("understand").dataset.category = selected;
+  byId("category-detail").textContent =
+    categories[selected].label +
+    " took " +
+    percentage +
+    "% of Dami’s spending.";
+  byId("budget-value").value = naira(limit);
+  budget.setAttribute("aria-valuetext", naira(limit));
+  byId("budget-spent").textContent = naira(total);
+  byId("budget-label").textContent = roomLabel;
+  byId("budget-room").textContent = naira(Math.abs(remaining));
+  const result = byId("budget-room").closest(".budget-result");
+  result.toggleAttribute("data-over", overBudget);
+  result.style.setProperty("--spending-ratio", Math.min(1, total / limit));
 }
 
-/* ============================================
-   SCROLL REVEAL ANIMATIONS
-   ============================================ */
-function initScrollReveal() {
-  const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        // Don't unobserve — allows re-triggering if needed
-      }
-    });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -60px 0px'
-  });
-
-  revealElements.forEach(el => observer.observe(el));
+function renderCash() {
+  const showingCash =
+    document.querySelector('input[name="capture"]:checked').value === "cash";
+  byId("cash-panel").hidden = !showingCash;
+  byId("bank-panel").hidden = showingCash;
+  byId("cash-action").firstChild.textContent = includesCash
+    ? "Remove sample cash expense "
+    : "Add sample cash expense ";
+  byId("cash-action").lastElementChild.textContent = includesCash ? "−" : "+";
+  byId("cash-status").textContent = includesCash
+    ? naira(cashAmount) + " added to groceries and this month’s spending."
+    : "Add this expense to see it in the next two chapters.";
 }
 
-/* ============================================
-   ANIMATED STATS COUNTER
-   ============================================ */
-function initStatsCounter() {
-  const statNumbers = document.querySelectorAll('.stat-number[data-count]');
-  let hasAnimated = false;
+byId("capture-choices").addEventListener("change", renderCash);
+byId("cash-action").addEventListener("click", () => {
+  includesCash = !includesCash;
+  renderCash();
+  renderMoney();
+});
+byId("category-choices").addEventListener("change", renderMoney);
+budget.addEventListener("input", renderMoney);
+budget.addEventListener("change", () => {
+  byId("budget-status").textContent =
+    byId("budget-label").textContent + " " + byId("budget-room").textContent;
+});
+renderCash();
+renderMoney();
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !hasAnimated) {
-        hasAnimated = true;
-        statNumbers.forEach(el => animateCounter(el));
-      }
-    });
-  }, { threshold: 0.3 });
+const chapterLinks = [...document.querySelectorAll(".chapter-nav a")];
+const chapters = chapterLinks.map((link) => document.querySelector(link.hash));
+const scenes = [...document.querySelectorAll("[data-scene]")];
+const art = [...document.querySelectorAll("[data-art]")];
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+let requestedFrame = 0;
 
-  const statsSection = document.getElementById('stats');
-  if (statsSection) {
-    observer.observe(statsSection);
-  }
-}
+function renderScroll() {
+  requestedFrame = 0;
+  const viewport = window.innerHeight;
+  const scrollable = document.documentElement.scrollHeight - viewport;
+  const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+  const line = Math.max(135, viewport * 0.43);
+  const sections = chapters.map((chapter) => chapter.getBoundingClientRect());
+  const trustTop = byId("your-data").getBoundingClientRect().top;
+  let current = -1;
 
-function animateCounter(el) {
-  const target = parseFloat(el.dataset.count);
-  const prefix = el.dataset.prefix || '';
-  const suffix = el.dataset.suffix || '';
-  const isDecimal = el.dataset.decimal === 'true';
-  const duration = 2000;
-  const startTime = performance.now();
-
-  function easeOutExpo(t) {
-    return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
-  }
-
-  function update(currentTime) {
-    const elapsed = currentTime - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    const easedProgress = easeOutExpo(progress);
-    const current = isDecimal
-      ? (target * easedProgress).toFixed(1)
-      : Math.floor(target * easedProgress).toLocaleString();
-
-    el.textContent = `${prefix}${current}${suffix}`;
-
-    if (progress < 1) {
-      requestAnimationFrame(update);
-    }
-  }
-
-  requestAnimationFrame(update);
-}
-
-/* ============================================
-   FAQ ACCORDION
-   ============================================ */
-function initFaqAccordion() {
-  const faqItems = document.querySelectorAll('.faq-item');
-
-  faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    const answer = item.querySelector('.faq-answer');
-
-    question.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
-
-      // Close all
-      faqItems.forEach(otherItem => {
-        otherItem.classList.remove('active');
-        const otherAnswer = otherItem.querySelector('.faq-answer');
-        otherAnswer.style.maxHeight = null;
-      });
-
-      // Toggle current
-      if (!isActive) {
-        item.classList.add('active');
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-      }
-    });
-  });
-}
-
-/* ============================================
-   CONTACT FORM
-   ============================================ */
-function initContactForm() {
-  const form = document.getElementById('contact-form');
-  const submitBtn = document.getElementById('form-submit-btn');
-
-  if (!form) return;
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    // Visual feedback
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Sending...';
-    submitBtn.style.opacity = '0.7';
-    submitBtn.disabled = true;
-
-    try {
-      const formData = new FormData(form);
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (response.ok) {
-        submitBtn.textContent = '✓ Message Sent!';
-        submitBtn.style.opacity = '1';
-        form.reset();
-
-        setTimeout(() => {
-          submitBtn.textContent = originalText;
-          submitBtn.style.background = '';
-          submitBtn.style.color = '';
-          submitBtn.disabled = false;
-        }, 3000);
-      } else {
-        throw new Error('Form submission failed');
-      }
-    } catch (error) {
-      submitBtn.textContent = '✕ Failed — Try Again';
-      submitBtn.style.opacity = '1';
-      submitBtn.disabled = false;
-
-      setTimeout(() => {
-        submitBtn.textContent = originalText;
-      }, 3000);
-    }
-  });
-
-  // Animated focus effects
-  const inputs = form.querySelectorAll('input, textarea');
-  inputs.forEach(input => {
-    input.addEventListener('focus', () => {
-      input.parentElement.style.transform = 'translateY(-2px)';
-      input.parentElement.style.transition = 'transform 0.3s ease';
-    });
-
-    input.addEventListener('blur', () => {
-      input.parentElement.style.transform = '';
-    });
-  });
-}
-
-/* ============================================
-   CHART BAR ANIMATIONS
-   ============================================ */
-function initChartBars() {
-  const chartBars = document.querySelectorAll('.mock-chart-bar-fill');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animated');
-      }
-    });
-  }, { threshold: 0.5 });
-
-  chartBars.forEach(bar => observer.observe(bar));
-}
-
-/* ============================================
-   PARALLAX EFFECTS
-   ============================================ */
-function initParallaxEffects() {
-  const heroGlow = document.querySelector('.hero-glow');
-  const floatCards = document.querySelectorAll('.hero-float-card');
-
-  let ticking = false;
-
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        const scrollY = window.scrollY;
-
-        // Hero glow parallax
-        if (heroGlow) {
-          heroGlow.style.transform = `translate(-50%, calc(-50% + ${scrollY * 0.3}px))`;
-        }
-
-        // Float cards subtle parallax
-        floatCards.forEach((card, i) => {
-          const rate = 0.05 + (i * 0.02);
-          card.style.transform = `translateY(${-scrollY * rate}px)`;
-        });
-
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, { passive: true });
-
-  // Mouse parallax on hero
-  const hero = document.querySelector('.hero');
-  if (hero) {
-    hero.addEventListener('mousemove', (e) => {
-      const rect = hero.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-      if (heroGlow) {
-        heroGlow.style.transform = `translate(calc(-50% + ${x * 40}px), calc(-50% + ${y * 40}px))`;
-      }
-
-      floatCards.forEach((card, i) => {
-        const intensity = 8 + i * 5;
-        card.style.transform = `translate(${x * intensity}px, ${y * intensity}px)`;
-      });
+  if (trustTop > line) {
+    sections.forEach((section, index) => {
+      if (section.top <= line) current = index;
     });
   }
 
-  // Smooth scroll for all anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    });
+  const positions = reduceMotion.matches
+    ? []
+    : art.map((element) => element.getBoundingClientRect());
+  document.documentElement.style.setProperty("--progress", progress);
+  chapterLinks.forEach((link, index) => {
+    if (index === current) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
+  });
+  positions.forEach((position, index) => {
+    if (position.bottom < 0 || position.top > viewport) return;
+    const distance =
+      (position.top + position.height / 2 - viewport / 2) * -0.025;
+    const maximum = Math.min(16, position.height * 0.023);
+    art[index].style.setProperty(
+      "--art-y",
+      Math.max(-maximum, Math.min(maximum, distance)) + "px",
+    );
   });
 }
+
+function scheduleScroll() {
+  if (!requestedFrame) requestedFrame = requestAnimationFrame(renderScroll);
+}
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.classList.add("is-seen");
+        observer.unobserve(entry.target);
+      }
+    },
+    { threshold: 0.18 },
+  );
+  scenes.forEach((scene) => observer.observe(scene));
+}
+window.addEventListener("scroll", scheduleScroll, { passive: true });
+window.addEventListener("resize", scheduleScroll);
+window.addEventListener("hashchange", scheduleScroll);
+reduceMotion.addEventListener("change", scheduleScroll);
+
+scheduleScroll();
